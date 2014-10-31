@@ -2,6 +2,8 @@
 
 ruboty plugin for yo.
 
+![screenshot](screenshot.png)
+
 ## Installation
 
 Add this line to your application's Gemfile:

@@ -1,3 +1,4 @@
+require "ruboty"
 require "ruboty/yo/version"
 require "ruboty/handlers/yo"
 

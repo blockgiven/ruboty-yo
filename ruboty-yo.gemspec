@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Ruboty::Yo::VERSION
   spec.authors       = ["block_given?"]
   spec.email         = ["block_given@outlook.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{ruboty plugin for yo.}
+  spec.homepage      = "https://github.com/blockgiven/ruboty-yo"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

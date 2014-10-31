@@ -8,3 +8,39 @@ begin
   task default: :spec
 rescue LoadError
 end
+
+desc 'make test yo data'
+task :test_yo do
+  require 'net/http'
+  require 'securerandom'
+  require 'vcr'
+  require 'webmock'
+
+  WebMock.allow_net_connect!
+  VCR.configure do |c|
+    c.cassette_library_dir = 'spec/fixtures'
+    c.hook_into :webmock
+  end
+
+  yo_endpoint_url = URI.parse('https://api.justyo.co/yo/')
+
+  exists_username  = 'JOE'
+  missing_username = SecureRandom.uuid.gsub(/-/, '')
+
+  VCR.use_cassette('yo') do
+    params = {api_token: ENV['YO_API_TOKEN'], username: exists_username}
+    p Net::HTTP.post_form(yo_endpoint_url, params)
+    params = {api_token: ENV['YO_API_TOKEN'], username: missing_username}
+    p Net::HTTP.post_form(yo_endpoint_url, params)
+  end
+
+  yo_filename = 'spec/fixtures/yo.yml'
+  yo = File.read(yo_filename)
+
+  fake_api_token = SecureRandom.uuid
+  yo.gsub!(ENV['YO_API_TOKEN'], fake_api_token)
+  yo.gsub!(exists_username, 'johndoe')
+  yo.gsub!(missing_username, 'janedoe')
+
+  File.write(yo_filename, yo)
+end

@@ -20,8 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-    @ruboty yo
-    @ruboty yo johndoe
+    すきだよ johndoe
+    元気にしてるかyo johndoe
+    yo johndoe
 
 ## Contributing
 

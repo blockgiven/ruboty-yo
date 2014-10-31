@@ -27,20 +27,24 @@ task :test_yo do
   exists_username  = 'JOE'
   missing_username = SecureRandom.uuid.gsub(/-/, '')
 
-  VCR.use_cassette('yo') do
+  VCR.use_cassette('yo_ok') do
     params = {api_token: ENV['YO_API_TOKEN'], username: exists_username}
     p Net::HTTP.post_form(yo_endpoint_url, params)
+  end
+  VCR.use_cassette('yo_ng') do
     params = {api_token: ENV['YO_API_TOKEN'], username: missing_username}
     p Net::HTTP.post_form(yo_endpoint_url, params)
   end
 
-  yo_filename = 'spec/fixtures/yo.yml'
-  yo = File.read(yo_filename)
+  %w(ok ng).each do |status|
+    yo_filename = "spec/fixtures/yo_#{status}.yml"
+    yo = File.read(yo_filename)
 
-  fake_api_token = SecureRandom.uuid
-  yo.gsub!(ENV['YO_API_TOKEN'], fake_api_token)
-  yo.gsub!(exists_username, 'johndoe')
-  yo.gsub!(missing_username, 'janedoe')
+    fake_api_token = SecureRandom.uuid
+    yo.gsub!(ENV['YO_API_TOKEN'], fake_api_token)
+    yo.gsub!(exists_username, 'johndoe')
+    yo.gsub!(missing_username, 'janedoe')
 
-  File.write(yo_filename, yo)
+    File.write(yo_filename, yo)
+  end
 end

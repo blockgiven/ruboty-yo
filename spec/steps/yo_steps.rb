@@ -13,9 +13,7 @@ step ':nameはyoを使うのをやめた' do |name|
 end
 
 step ':bodyと私が言った' do |body|
-  VCR.use_cassette('yo') do
-    @ruboty.receive(body: body)
-  end
+  @ruboty.receive(body: body)
 end
 
 step 'Rubotyは:nameにyoと伝えた' do |name|

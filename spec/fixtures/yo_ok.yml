@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.justyo.co/yo/
+    body:
+      encoding: US-ASCII
+      string: api_token=0ba3144a-5cb4-4eb3-92f1-42fa65345aaf&username=johndoe
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.justyo.co
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn/18.0
+      Date:
+      - Fri, 31 Oct 2014 19:04:09 GMT
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+      Vary:
+      - Accept, Cookie
+      Allow:
+      - POST, OPTIONS
+      X-Frame-Options:
+      - SAMEORIGIN
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"result": "OK"}'
+    http_version: 
+  recorded_at: Fri, 31 Oct 2014 19:04:09 GMT
+recorded_with: VCR 2.9.3

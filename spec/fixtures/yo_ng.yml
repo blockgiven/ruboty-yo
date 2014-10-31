@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.justyo.co/yo/
+    body:
+      encoding: US-ASCII
+      string: api_token=3f020510-5961-4ef9-864a-aa8b6d63ed95&username=janedoe
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.justyo.co
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 400
+      message: BAD REQUEST
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn/18.0
+      Date:
+      - Fri, 31 Oct 2014 19:04:10 GMT
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Cookie
+      Allow:
+      - POST, OPTIONS
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Type:
+      - application/json
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"code": 141, "error": "NO SUCH USER"}'
+    http_version: 
+  recorded_at: Fri, 31 Oct 2014 19:04:10 GMT
+recorded_with: VCR 2.9.3

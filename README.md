@@ -22,9 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
-    すきだよ johndoe
-    元気にしてるかyo johndoe
-    yo johndoe
+### Send Yo
+
+    > すきだよ johndoe
+    > 元気にしてるかyo johndoe
+    > yo johndoe
+
+### Something wrong
+
+    > 存在しないユーザにyo ななしのごんべえ
+    伝わらなかったよ
 
 ## Contributing
 

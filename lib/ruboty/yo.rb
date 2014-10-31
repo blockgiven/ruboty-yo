@@ -4,6 +4,6 @@ require "ruboty/handlers/yo"
 
 module Ruboty
   module Yo
-    # Your code goes here...
+    ENDPOINT_URL = URI.parse('https://api.justyo.co/yo/')
   end
 end
